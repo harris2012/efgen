@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Panosen.DBSchema.Mysql" Version="0.1.1" />
+        <PackageReference Include="Panosen.Language.CSharp" Version="1.1.0" />
+        <PackageReference Include="Panosen.Language.Mysql" Version="1.1.0" />
+        <PackageReference Include="Panosen.Text.Extension" Version="1.0.0" />
+        <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.7" />
+        <PackageReference Include="Panosen.CodeDom.EFCore.Engine" Version="0.2.3" />
+        <PackageReference Include="Panosen.Generation" Version="1.0.4" />
+        <PackageReference Include="Panosen.Resource.CSharp" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>

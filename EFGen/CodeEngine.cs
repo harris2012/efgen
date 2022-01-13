@@ -59,7 +59,7 @@ namespace EFGen.Generation
                 builder.AppendLine("| --- | --- | --- |");
                 foreach (var column in table.ColumnMap.Values)
                 {
-                    builder.AppendLine($"| {column.RealColumnName} | {column.ColumnType} | {column.Comment.Replace("\r", "").Replace("\n", ";")} ");
+                    builder.AppendLine($"| {column.RealColumnName} | {column.ColumnType} | {column.Comment.Replace("\r", "").Replace("\n", ";")} |");
                 }
 
                 builder.AppendLine();

@@ -73,13 +73,15 @@ namespace EFGen
 
             var targetSolutionFolder = Environment.CurrentDirectory;
 
-            Context context = new Context();
-            context.Param = profile.Param;
-            context.TableMap = new Mapper().BuildTableMap(schema.TableList, schema.FieldList, schema.StatisticsList, schema.KeyColumnUsageList, profile.Param.TablePrefix);
+            var tableMap = new Mapper().BuildTableMap(schema.TableList, schema.ColumnList, schema.StatisticsList, schema.KeyColumnUsageList, profile.Param.TablePrefix);
 
             var cSharpResource = new CSharpResource();
 
-            var package = new CodeEngine().Generate(context, cSharpResource);
+            var package = new Package();
+
+            new CodeEngine().Generate(package, profile.Param, tableMap, cSharpResource);
+
+            new ScriptEngine().Generate(package, Path.Combine("efgen", $"{profile.Param.DBName}.sql"), schema);
 
             foreach (var file in package.Files)
             {

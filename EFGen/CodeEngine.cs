@@ -6,24 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 
+using EFCoreTable = Panosen.CodeDom.EFCore.Table;
+
 using Panosen.Generation;
 using Panosen.Resource.CSharp;
 using Panosen.CodeDom.CSharpProject.Engine;
 using Panosen.CodeDom.CSharpProject;
 using Panosen.CodeDom.EFCore.Engine;
 using Panosen.CodeDom.EFCore;
+using Panosen.CodeDom.Mysql.Engine;
 
 namespace EFGen.Generation
 {
     public class CodeEngine
     {
-        public Package Generate(Context context, CSharpResource cSharpResource)
+        public Package Generate(Package package, Param param, Dictionary<string, EFCoreTable> tableMap, CSharpResource cSharpResource)
         {
-            var param = context.Param;
-
-            var package = new Package();
-            var tableMap = context.TableMap;
-
             if (!string.IsNullOrEmpty(param.SolutionName))
             {
                 package.Add(CSharpResourcePaths._gitattributes, cSharpResource.GetResource(CSharpResourceKeys.__gitattributes));
@@ -40,12 +38,12 @@ namespace EFGen.Generation
 
             GenerateTableEntity(param, package, tableMap);
 
-            GenerateScript(package, tableMap);
+            GenerateMarkdown(package, Path.Combine("efgen", $"{param.DBName}.md"), tableMap);
 
             return package;
         }
 
-        private void GenerateScript(Package package, Dictionary<string, Table> tableMap)
+        private void GenerateMarkdown(Package package, string fileName, Dictionary<string, EFCoreTable> tableMap)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -65,7 +63,7 @@ namespace EFGen.Generation
                 builder.AppendLine();
             }
 
-            package.Add("efgen.md", builder.ToString());
+            package.Add(fileName, builder.ToString());
         }
 
         private static void GenerateSolution(Param param, Package package)

@@ -16,7 +16,7 @@
         <PackageReference Include="Panosen.Language.Mysql" Version="1.1.0" />
         <PackageReference Include="Panosen.Text.Extension" Version="1.0.0" />
         <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.7" />
-        <PackageReference Include="Panosen.CodeDom.EFCore.Engine" Version="0.2.3" />
+        <PackageReference Include="Panosen.CodeDom.EFCore.Engine" Version="0.2.4" />
         <PackageReference Include="Panosen.Generation" Version="1.0.4" />
         <PackageReference Include="Panosen.Resource.CSharp" Version="1.0.0" />
     </ItemGroup>

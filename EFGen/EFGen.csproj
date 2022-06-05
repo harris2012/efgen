@@ -11,7 +11,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <PackageReference Include="Panosen.DBSchema.Mysql" Version="0.1.1" />
+        <PackageReference Include="Panosen.DBSchema.Mysql" Version="0.1.3" />
         <PackageReference Include="Panosen.Language.CSharp" Version="1.1.0" />
         <PackageReference Include="Panosen.Language.Mysql" Version="1.1.0" />
         <PackageReference Include="Panosen.Text.Extension" Version="1.0.0" />
